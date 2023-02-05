@@ -1,6 +1,18 @@
 cmake_minimum_required(VERSION 3.2)
-add_library(Engine SHARED engine.hpp engine.cpp)
-set_target_properties(Engine PROPERTIES LINKER_LANGUAGE CXX)
-
+add_library(HexEngine SHARED Engine.hpp Engine.cpp EntryPoint.hpp Core.hpp include/HexEngine.hpp)
+set_target_properties(HexEngine PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(HexEngine PROPERTIES PREFIX "")
 add_subdirectory(logger)
-target_link_libraries(Engine Logger)
+add_subdirectory(libs)
+
+target_link_libraries(HexEngine Logger)
+target_link_libraries(HexEngine glfw)
+target_link_libraries(HexEngine glad)
+target_link_libraries(HexEngine glm)
+set(OpenGL_GL_PREFERENCE GLVND)
+find_package(OpenGL REQUIRED)
+target_link_libraries(HexEngine OpenGL::GL)
+
+include_directories("libs/glfw/include")
+include_directories("libs/glad/include")
+include_directories("libs/glm/")
