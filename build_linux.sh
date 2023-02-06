@@ -12,5 +12,5 @@ elif [[ ! -d $dir ]]; then
     echo "$dir already exists but is not a directory"
 fi
 cd build
-cmake ../source -G "MinGW Makefiles"
-make -j
+cmake ../source
+make
