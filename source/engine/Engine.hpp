@@ -16,3 +16,4 @@ namespace Hex {
     Application* CreateApplication();
 };
 
+using HexApp = Hex::Application;

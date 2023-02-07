@@ -2,10 +2,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat2x2.hpp>
-#include "Engine.hpp"
+#include "engine.hpp"
 #include "logger/logger.hpp"
 #include <iostream>
 namespace Hex {
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 void HelloEngine()
 {
@@ -47,6 +48,7 @@ int Application::Run()
         return -1;
     }
 
+    glfwSetKeyCallback(window, key_callback);
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
@@ -62,5 +64,14 @@ int Application::Run()
 
     glfwTerminate();
     return 0;
+}
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_E){
+        std::cout << "E pressed\n";
+    }
+    if (key == GLFW_KEY_A && action == GLFW_PRESS){
+        std::cout << "A pressed\n";
+    }
 }
 }

@@ -11,7 +11,7 @@ set(CMAKE_PROJECT_NAME HexGRAPHICS)
 
 project(${CMAKE_PROJECT_NAME})
 set(SOURCE_FILES application/Application.cpp)
-list(APPEND ${SOURCE_FILES} application/test.hpp)
+
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 
